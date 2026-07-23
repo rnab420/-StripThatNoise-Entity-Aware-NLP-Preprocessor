@@ -1,0 +1,16 @@
+# Created by venv; see https://docs.python.org/3/library/venv.html
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*$py.class
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Streamlit local settings
+.streamlit/
+
+# VS Code settings
+.vscode/
