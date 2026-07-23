@@ -10,13 +10,13 @@ Built with **spaCy**, **NLTK**, and **Streamlit**.
 
 Given raw text, the pipeline runs through the following stages, in order:
 
-1. **Text cleaning** — normalizes newlines and collapses extra whitespace.
-2. **Named Entity Recognition (NER)** — runs first, on the full, unmodified text, since NER models rely on capitalization, punctuation, and grammatical context (articles, prepositions) to correctly detect entities.
-3. **Tokenization** — splits the cleaned text into words and sentences.
-4. **Stopword removal** — filters out common English stopwords (e.g. "the", "is", "of"), **except** when a word falls inside a detected entity's character span (e.g. the "of" in "Bank of America" is preserved).
-5. **Stemming** — reduces words to a crude root form (e.g. "running" → "run"), skipped for protected entity words.
-6. **Lemmatization** — reduces words to their dictionary base form (e.g. "theories" → "theory"), also skipped for protected entity words.
-7. **POS tagging** — tags each token with its part of speech.
+1. **Text cleaning**: normalizes newlines and collapses extra whitespace.
+2. **Named Entity Recognition (NER)**: runs first, on the full, unmodified text, since NER models rely on capitalization, punctuation, and grammatical context (articles, prepositions) to correctly detect entities.
+3. **Tokenization**: splits the cleaned text into words and sentences.
+4. **Stopword removal**: filters out common English stopwords (e.g. "the", "is", "of"), **except** when a word falls inside a detected entity's character span (e.g. the "of" in "Bank of America" is preserved).
+5. **Stemming**: reduces words to a crude root form (e.g. "running" → "run"), skipped for protected entity words.
+6. **Lemmatization**: reduces words to their dictionary base form (e.g. "theories" → "theory"), also skipped for protected entity words.
+7. **POS tagging**: tags each token with its part of speech.
 
 Entities are protected by **character position**, not by string matching — a word is only preserved when it physically falls inside an entity's span in the original text. This means a stopword like "of" is protected only when it's genuinely part of an entity name, not everywhere it appears in the document.
 
@@ -24,13 +24,13 @@ Entities are protected by **character position**, not by string matching — a w
 
 The tool displays each pipeline stage in the browser and lets you download the full result as a structured JSON file, containing:
 
-- `original_text` — your unmodified input
-- `entities` — extracted entities with their labels (`PERSON`, `ORG`, `GPE`, `DATE`, etc.)
-- `sentences` / `tokens` — raw sentence and word tokenization
-- `filtered_tokens` — stopwords removed, entities preserved
-- `stemmed_tokens` — stemmed version of the filtered tokens
-- `lemmatized_tokens` — lemmatized version of the tokens
-- `pos_tags` — part-of-speech tag for each token
+- `original_text` => your unmodified input
+- `entities` => extracted entities with their labels (`PERSON`, `ORG`, `GPE`, `DATE`, etc.)
+- `sentences` / `tokens` => raw sentence and word tokenization
+- `filtered_tokens` => stopwords removed, entities preserved
+- `stemmed_tokens` => stemmed version of the filtered tokens
+- `lemmatized_tokens` => lemmatized version of the tokens
+- `pos_tags` => part-of-speech tag for each token
 
 ## Running it locally
 
